@@ -1,10 +1,8 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Badge } from '@/components/ui/badge';
 import { toast } from '@/hooks/use-toast';
 import { ArrowRight } from 'lucide-react';
 
@@ -18,18 +16,17 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Create mailto link with form data
     const subject = encodeURIComponent(formData.subject);
     const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
     const mailtoLink = `mailto:officialtechwithmano@gmail.com?subject=${subject}&body=${body}`;
-    
+
     window.location.href = mailtoLink;
-    
+
     toast({
       title: "Opening Email Client",
       description: "Your default email client will open with the message pre-filled.",
     });
-    
+
     setFormData({ name: '', email: '', subject: '', message: '' });
   };
 
@@ -70,10 +67,10 @@ const Contact = () => {
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Form */}
           <Card className="glass-morph hover-lift">
-            <CardHeader>
+            <CardHeader className="text-center lg:text-left">
               <CardTitle className="text-2xl text-cyan-400">Send a Message</CardTitle>
             </CardHeader>
-            <CardContent>
+            <CardContent className="text-left">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
@@ -98,7 +95,7 @@ const Contact = () => {
                     />
                   </div>
                 </div>
-                
+
                 <div>
                   <Input
                     name="subject"
@@ -109,7 +106,7 @@ const Contact = () => {
                     required
                   />
                 </div>
-                
+
                 <div>
                   <Textarea
                     name="message"
@@ -121,7 +118,7 @@ const Contact = () => {
                     required
                   />
                 </div>
-                
+
                 <Button 
                   type="submit"
                   className="w-full bg-gradient-to-r from-cyber-blue to-neon-purple hover:from-neon-purple hover:to-plasma-pink text-white"
@@ -134,13 +131,12 @@ const Contact = () => {
           </Card>
 
           {/* Contact Info & Actions */}
-          <div className="space-y-8">
-            {/* Quick Contact Info */}
+          <div className="space-y-8 text-left">
             <Card className="glass-morph hover-lift">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold text-cyan-400 mb-6">Get in Touch</h3>
+              <CardContent className="p-8 text-left">
+                <h3 className="text-2xl font-bold text-cyan-400 mb-6 text-center lg:text-left">Get in Touch</h3>
                 <div className="space-y-4">
-                  <div className="flex items-center space-x-4">
+                  <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 rounded-full bg-gradient-to-r from-cyber-blue to-neon-purple flex items-center justify-center">
                       📧
                     </div>
@@ -149,7 +145,7 @@ const Contact = () => {
                       <p className="text-gray-400">officialtechwithmano@gmail.com</p>
                     </div>
                   </div>
-                  <div className="flex items-center space-x-4">
+                  <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 rounded-full bg-gradient-to-r from-neon-purple to-plasma-pink flex items-center justify-center">
                       📱
                     </div>
@@ -158,7 +154,7 @@ const Contact = () => {
                       <p className="text-gray-400">+965 6556 0890</p>
                     </div>
                   </div>
-                  <div className="flex items-center space-x-4">
+                  <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 rounded-full bg-gradient-to-r from-plasma-pink to-neural-orange flex items-center justify-center">
                       📍
                     </div>
@@ -173,9 +169,9 @@ const Contact = () => {
 
             {/* Social Links */}
             <Card className="glass-morph hover-lift">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold text-cyan-400 mb-6">Find Me Online</h3>
-                <div className="grid grid-cols-2 gap-4">
+              <CardContent className="p-8 text-left">
+                <h3 className="text-2xl font-bold text-cyan-400 mb-6 text-center lg:text-left">Find Me Online</h3>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                   {socialLinks.map((link) => (
                     <Button
                       key={link.name}
@@ -194,17 +190,16 @@ const Contact = () => {
                   >
                     Linktree
                   </Button>
-
                 </div>
               </CardContent>
             </Card>
 
             {/* Quick Actions */}
             <Card className="glass-morph hover-lift">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold text-cyan-400 mb-6">Collaboration Opportunities</h3>
+              <CardContent className="p-8 text-left">
+                <h3 className="text-2xl font-bold text-cyan-400 mb-6 text-center lg:text-left">Collaboration Opportunities</h3>
                 <div className="space-y-4">
-                  {quickActions.map((action, index) => (
+                  {quickActions.map((action) => (
                     <div 
                       key={action.title}
                       className="p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors cursor-pointer group"
@@ -224,7 +219,7 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            {/* Download CV Button */}
+            {/* Download CV */}
             <Button 
               size="lg"
               className="w-full bg-gradient-to-r from-neural-orange to-plasma-pink hover:from-plasma-pink hover:to-cyber-blue text-white py-4"
