@@ -47,15 +47,16 @@ const Contact = () => {
   ];
 
   const quickActions = [
-    { title: 'Collaborate on AI Projects', description: 'Let\'s build the future together', action: 'collaboration' },
-    { title: 'Educational Partnerships', description: 'Join Tech with Mano community', action: 'education' },
-    { title: 'Speaking Engagements', description: 'Tech talks and workshops', action: 'speaking' },
-    { title: 'Open Source Contributions', description: 'Contribute to my projects', action: 'opensource' }
+    { title: 'Collaborate on AI Projects', description: 'Let\'s build the future together' },
+    { title: 'Educational Partnerships', description: 'Join Tech with Mano community' },
+    { title: 'Speaking Engagements', description: 'Tech talks and workshops' },
+    { title: 'Open Source Contributions', description: 'Contribute to my projects' }
   ];
 
   return (
     <section id="contact-section" className="section-padding bg-neural-mesh">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 max-w-7xl">
+        {/* Heading */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">Let's Connect</h2>
           <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">
@@ -64,8 +65,36 @@ const Contact = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-cyber-blue to-neon-purple mx-auto rounded-full mt-6"></div>
         </div>
 
-        <div className="flex flex-col lg:flex-row lg:items-stretch gap-8 lg:gap-12 max-w-7xl mx-auto">
-          {/* Left Side: Contact Form */}
+        {/* Find Me Online - on top */}
+        <Card className="glass-morph hover-lift mb-12">
+          <CardContent className="p-6 md:p-8 text-left">
+            <h3 className="text-2xl font-bold text-cyan-400 mb-6 text-center lg:text-left">Find Me Online</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+              {socialLinks.map(link => (
+                <Button
+                  key={link.name}
+                  variant="outline"
+                  className={`cyber-border hover:bg-gradient-to-r hover:${link.color} hover:text-white transition-all duration-300`}
+                  onClick={() => window.open(link.url, '_blank')}
+                >
+                  {link.name}
+                </Button>
+              ))}
+              <Button
+                key="Linktree"
+                variant="outline"
+                className="cyber-border hover:bg-gradient-to-r hover:from-green-500 hover:to-teal-600 hover:text-white transition-all duration-300"
+                onClick={() => window.open('https://linktr.ee/techwithmano', '_blank')}
+              >
+                Linktree
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Two Columns: Form + Info */}
+        <div className="flex flex-col lg:flex-row lg:items-stretch gap-8 lg:gap-12">
+          {/* Contact Form */}
           <div className="flex-1 lg:h-full">
             <Card className="glass-morph hover-lift h-full">
               <CardHeader className="text-center lg:text-left">
@@ -121,7 +150,7 @@ const Contact = () => {
             </Card>
           </div>
 
-          {/* Right Side: Info + Links */}
+          {/* Info & Quick Actions */}
           <div className="flex-1 lg:h-full space-y-8">
             <Card className="glass-morph hover-lift">
               <CardContent className="p-6 md:p-8 text-left">
@@ -142,32 +171,6 @@ const Contact = () => {
                       </div>
                     </div>
                   ))}
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="glass-morph hover-lift">
-              <CardContent className="p-6 md:p-8 text-left">
-                <h3 className="text-2xl font-bold text-cyan-400 mb-6 text-center lg:text-left">Find Me Online</h3>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                  {socialLinks.map(link => (
-                    <Button
-                      key={link.name}
-                      variant="outline"
-                      className={`cyber-border hover:bg-gradient-to-r hover:${link.color} hover:text-white transition-all duration-300`}
-                      onClick={() => window.open(link.url, '_blank')}
-                    >
-                      {link.name}
-                    </Button>
-                  ))}
-                  <Button
-                    key="Linktree"
-                    variant="outline"
-                    className="cyber-border hover:bg-gradient-to-r hover:from-green-500 hover:to-teal-600 hover:text-white transition-all duration-300"
-                    onClick={() => window.open('https://linktr.ee/techwithmano', '_blank')}
-                  >
-                    Linktree
-                  </Button>
                 </div>
               </CardContent>
             </Card>
@@ -195,16 +198,19 @@ const Contact = () => {
                 </div>
               </CardContent>
             </Card>
-
-            <Button 
-              size="lg"
-              className="w-full bg-gradient-to-r from-neural-orange to-plasma-pink hover:from-plasma-pink hover:to-cyber-blue text-white py-4"
-              onClick={() => window.open('https://ugc.production.linktr.ee/06ed18ca-d9d6-4b7c-bd21-e9fd379a3c3c_Abdulrahman-Haramain-CV.pdf', '_blank')}
-            >
-              Download My CV
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
           </div>
+        </div>
+
+        {/* CV Download - Centered */}
+        <div className="flex justify-center mt-12">
+          <Button 
+            size="lg"
+            className="w-full max-w-md text-center bg-gradient-to-r from-neural-orange to-plasma-pink hover:from-plasma-pink hover:to-cyber-blue text-white py-4"
+            onClick={() => window.open('https://ugc.production.linktr.ee/06ed18ca-d9d6-4b7c-bd21-e9fd379a3c3c_Abdulrahman-Haramain-CV.pdf', '_blank')}
+          >
+            Download My CV
+            <ArrowRight className="ml-2 w-5 h-5" />
+          </Button>
         </div>
       </div>
     </section>
