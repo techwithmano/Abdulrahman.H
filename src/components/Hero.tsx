@@ -52,11 +52,11 @@ const Hero = () => {
       <div className="container mx-auto section-padding text-center relative z-10">
         <div className="glass-morph p-6 sm:p-8 md:p-12 max-w-4xl mx-auto animate-fade-in">
           {/* Name with glitch effect - Fixed responsive sizing */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-bold mb-6 glitch leading-tight">
-            <span className="text-gradient block sm:inline">ABDULRAHMAN</span>
-            <br className="block sm:hidden" />
-            <span className="text-white block sm:inline mt-2 sm:mt-0">HARAMAIN</span>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 glitch leading-tight break-words px-2 sm:px-0">
+            <span className="text-gradient block text-center">ABDULRAHMAN</span>
+            <span className="text-white block text-center">HARAMAIN</span>
           </h1>
+
 
           {/* Typewriter effect for title */}
           <div className="mb-8 h-12 sm:h-16 flex items-center justify-center px-4">
@@ -93,7 +93,7 @@ const Hero = () => {
               size="lg"
               variant="outline"
               className="cyber-border text-cyan-400 hover:bg-cyan-400/10 px-6 sm:px-8 py-3 sm:py-4 rounded-full transition-all duration-300 hover-lift"
-              onClick={() => window.open('https://linktr.ee/techwithmano', '_blank')}
+              onClick={() => document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Connect with Me
             </Button>

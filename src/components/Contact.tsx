@@ -57,7 +57,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="section-padding bg-neural-mesh">
+    <section id="contact-section" className="section-padding bg-neural-mesh">
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold mb-6 text-gradient">Let's Connect</h2>
@@ -186,6 +186,15 @@ const Contact = () => {
                       {link.name}
                     </Button>
                   ))}
+                  <Button
+                    key="Linktree"
+                    variant="outline"
+                    className="cyber-border hover:bg-gradient-to-r hover:from-green-500 hover:to-teal-600 hover:text-white transition-all duration-300"
+                    onClick={() => window.open('https://linktr.ee/techwithmano', '_blank')}
+                  >
+                    Linktree
+                  </Button>
+
                 </div>
               </CardContent>
             </Card>
