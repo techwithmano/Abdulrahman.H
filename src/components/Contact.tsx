@@ -58,7 +58,7 @@ const Contact = () => {
 
   return (
     <section id="contact-section" className="section-padding bg-neural-mesh">
-      <div className="container mx-auto">
+      <div className="container mx-auto text-center">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold mb-6 text-gradient">Let's Connect</h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
