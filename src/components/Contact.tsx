@@ -56,7 +56,7 @@ const Contact = () => {
   return (
     <section id="contact-section" className="section-padding bg-neural-mesh">
       <div className="container mx-auto px-4 max-w-7xl">
-        {/* Heading */}
+        {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">Let's Connect</h2>
           <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">
@@ -65,42 +65,43 @@ const Contact = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-cyber-blue to-neon-purple mx-auto rounded-full mt-6"></div>
         </div>
 
-        {/* 🔵 FIND ME ONLINE - CENTERED & ABOVE COLUMNS */}
-        <Card className="glass-morph hover-lift mb-10">
-          <CardContent className="p-6 md:p-8 text-left">
-            <h3 className="text-2xl font-bold text-cyan-400 mb-6 text-center">Find Me Online</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 justify-center">
-              {socialLinks.map(link => (
-                <Button
-                  key={link.name}
-                  variant="outline"
-                  className={`cyber-border hover:bg-gradient-to-r hover:${link.color} hover:text-white transition-all duration-300`}
-                  onClick={() => window.open(link.url, '_blank')}
-                >
-                  {link.name}
-                </Button>
-              ))}
-              <Button
-                key="Linktree"
-                variant="outline"
-                className="cyber-border hover:bg-gradient-to-r hover:from-green-500 hover:to-teal-600 hover:text-white transition-all duration-300"
-                onClick={() => window.open('https://linktr.ee/techwithmano', '_blank')}
-              >
-                Linktree
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
+        {/* Grid: 2 columns */}
+        <div className="grid lg:grid-cols-2 gap-12">
+          {/* LEFT COLUMN */}
+          <div className="space-y-8">
+            {/* Find Me Online */}
+            <Card className="glass-morph hover-lift">
+              <CardContent className="p-6 md:p-8 text-left">
+                <h3 className="text-2xl font-bold text-cyan-400 mb-6 text-center lg:text-left">Find Me Online</h3>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 justify-center">
+                  {socialLinks.map(link => (
+                    <Button
+                      key={link.name}
+                      variant="outline"
+                      className={`cyber-border hover:bg-gradient-to-r hover:${link.color} hover:text-white transition-all duration-300`}
+                      onClick={() => window.open(link.url, '_blank')}
+                    >
+                      {link.name}
+                    </Button>
+                  ))}
+                  <Button
+                    key="Linktree"
+                    variant="outline"
+                    className="cyber-border hover:bg-gradient-to-r hover:from-green-500 hover:to-teal-600 hover:text-white transition-all duration-300"
+                    onClick={() => window.open('https://linktr.ee/techwithmano', '_blank')}
+                  >
+                    Linktree
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
 
-        {/* 🟣 TWO COLUMNS */}
-        <div className="flex flex-col lg:flex-row lg:items-stretch gap-8 lg:gap-12">
-          {/* LEFT - Send Message */}
-          <div className="flex-1 lg:h-full mt-2">
-            <Card className="glass-morph hover-lift h-full">
+            {/* Send a Message */}
+            <Card className="glass-morph hover-lift">
               <CardHeader className="text-center lg:text-left">
                 <CardTitle className="text-2xl text-cyan-400">Send a Message</CardTitle>
               </CardHeader>
-              <CardContent className="text-left">
+              <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-4">
                     <Input
@@ -150,8 +151,9 @@ const Contact = () => {
             </Card>
           </div>
 
-          {/* RIGHT - Info + Actions */}
-          <div className="flex-1 lg:h-full space-y-8">
+          {/* RIGHT COLUMN */}
+          <div className="space-y-8">
+            {/* Contact Info */}
             <Card className="glass-morph hover-lift">
               <CardContent className="p-6 md:p-8 text-left">
                 <h3 className="text-2xl font-bold text-cyan-400 mb-6 text-center lg:text-left">Get in Touch</h3>
@@ -175,6 +177,7 @@ const Contact = () => {
               </CardContent>
             </Card>
 
+            {/* Opportunities */}
             <Card className="glass-morph hover-lift">
               <CardContent className="p-6 md:p-8 text-left">
                 <h3 className="text-2xl font-bold text-cyan-400 mb-6 text-center lg:text-left">Collaboration Opportunities</h3>
@@ -201,7 +204,7 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* ⬇️ DOWNLOAD CV - centered below */}
+        {/* Download CV Button Centered */}
         <div className="flex justify-center mt-12">
           <Button 
             size="lg"
