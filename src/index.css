@@ -1,7 +1,30 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* === COLOR SCHEME LOCK FOR MOBILE DEVICES === */
+@layer base {
+  /* Force only light mode on all devices */
+  :root {
+    color-scheme: only light !important;
+  }
+
+  html, body {
+    background-color: hsl(var(--background)) !important; /* keeps your bg */
+    color-scheme: none !important; /* prevent system forced colors */
+    -webkit-appearance: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+
+  input, textarea, select, button {
+    background-color: transparent !important;
+    color: inherit !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+}
 
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
