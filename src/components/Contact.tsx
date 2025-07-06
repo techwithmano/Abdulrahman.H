@@ -55,25 +55,25 @@ const Contact = () => {
 
   return (
     <section id="contact-section" className="section-padding bg-neural-mesh">
-      <div className="container mx-auto">
+      <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold mb-6 text-gradient">Let's Connect</h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">Let's Connect</h2>
+          <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">
             Ready to collaborate on innovative projects or discuss opportunities? I'd love to hear from you!
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-cyber-blue to-neon-purple mx-auto rounded-full mt-6"></div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
-          <Card className="glass-morph hover-lift">
-            <CardHeader className="text-center lg:text-left">
-              <CardTitle className="text-2xl text-cyan-400">Send a Message</CardTitle>
-            </CardHeader>
-            <CardContent className="text-left">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
+        <div className="flex flex-col lg:flex-row gap-12">
+          {/* Left Side: Contact Form */}
+          <div className="flex-1">
+            <Card className="glass-morph hover-lift">
+              <CardHeader className="text-center lg:text-left">
+                <CardTitle className="text-2xl text-cyan-400">Send a Message</CardTitle>
+              </CardHeader>
+              <CardContent className="text-left">
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-4">
                     <Input
                       name="name"
                       placeholder="Your Name"
@@ -82,8 +82,6 @@ const Contact = () => {
                       className="cyber-border bg-black/50 text-white placeholder:text-gray-400"
                       required
                     />
-                  </div>
-                  <div>
                     <Input
                       name="email"
                       type="email"
@@ -94,9 +92,6 @@ const Contact = () => {
                       required
                     />
                   </div>
-                </div>
-
-                <div>
                   <Input
                     name="subject"
                     placeholder="Subject"
@@ -105,9 +100,6 @@ const Contact = () => {
                     className="cyber-border bg-black/50 text-white placeholder:text-gray-400"
                     required
                   />
-                </div>
-
-                <div>
                   <Textarea
                     name="message"
                     placeholder="Your message..."
@@ -117,62 +109,50 @@ const Contact = () => {
                     className="cyber-border bg-black/50 text-white placeholder:text-gray-400 resize-none"
                     required
                   />
-                </div>
+                  <Button 
+                    type="submit"
+                    className="w-full bg-gradient-to-r from-cyber-blue to-neon-purple hover:from-neon-purple hover:to-plasma-pink text-white"
+                  >
+                    Send Message
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
+          </div>
 
-                <Button 
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-cyber-blue to-neon-purple hover:from-neon-purple hover:to-plasma-pink text-white"
-                >
-                  Send Message
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
-
-          {/* Contact Info & Actions */}
-          <div className="space-y-8 text-left">
+          {/* Right Side: Info + Links */}
+          <div className="flex-1 space-y-8">
+            {/* Get in Touch */}
             <Card className="glass-morph hover-lift">
-              <CardContent className="p-8 text-left">
+              <CardContent className="p-6 md:p-8 text-left">
                 <h3 className="text-2xl font-bold text-cyan-400 mb-6 text-center lg:text-left">Get in Touch</h3>
                 <div className="space-y-4">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-r from-cyber-blue to-neon-purple flex items-center justify-center">
-                      📧
+                  {[
+                    { icon: '📧', title: 'Email', value: 'officialtechwithmano@gmail.com' },
+                    { icon: '📱', title: 'Phone', value: '+965 6556 0890' },
+                    { icon: '📍', title: 'Location', value: 'Kuwait City' }
+                  ].map(({ icon, title, value }) => (
+                    <div key={title} className="flex items-start space-x-4">
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-r from-cyber-blue to-neon-purple flex items-center justify-center">
+                        {icon}
+                      </div>
+                      <div>
+                        <p className="text-white font-semibold">{title}</p>
+                        <p className="text-gray-400">{value}</p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="text-white font-semibold">Email</p>
-                      <p className="text-gray-400">officialtechwithmano@gmail.com</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-r from-neon-purple to-plasma-pink flex items-center justify-center">
-                      📱
-                    </div>
-                    <div>
-                      <p className="text-white font-semibold">Phone</p>
-                      <p className="text-gray-400">+965 6556 0890</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-r from-plasma-pink to-neural-orange flex items-center justify-center">
-                      📍
-                    </div>
-                    <div>
-                      <p className="text-white font-semibold">Location</p>
-                      <p className="text-gray-400">Kuwait City</p>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </CardContent>
             </Card>
 
             {/* Social Links */}
             <Card className="glass-morph hover-lift">
-              <CardContent className="p-8 text-left">
+              <CardContent className="p-6 md:p-8 text-left">
                 <h3 className="text-2xl font-bold text-cyan-400 mb-6 text-center lg:text-left">Find Me Online</h3>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                  {socialLinks.map((link) => (
+                  {socialLinks.map(link => (
                     <Button
                       key={link.name}
                       variant="outline"
@@ -194,9 +174,9 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            {/* Quick Actions */}
+            {/* Collaboration */}
             <Card className="glass-morph hover-lift">
-              <CardContent className="p-8 text-left">
+              <CardContent className="p-6 md:p-8 text-left">
                 <h3 className="text-2xl font-bold text-cyan-400 mb-6 text-center lg:text-left">Collaboration Opportunities</h3>
                 <div className="space-y-4">
                   {quickActions.map((action) => (
@@ -219,7 +199,7 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            {/* Download CV */}
+            {/* CV Download */}
             <Button 
               size="lg"
               className="w-full bg-gradient-to-r from-neural-orange to-plasma-pink hover:from-plasma-pink hover:to-cyber-blue text-white py-4"
