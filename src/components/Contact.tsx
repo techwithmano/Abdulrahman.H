@@ -18,11 +18,18 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate form submission
+    // Create mailto link with form data
+    const subject = encodeURIComponent(formData.subject);
+    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
+    const mailtoLink = `mailto:officialtechwithmano@gmail.com?subject=${subject}&body=${body}`;
+    
+    window.location.href = mailtoLink;
+    
     toast({
-      title: "Message Sent!",
-      description: "Thank you for reaching out. I'll get back to you soon!",
+      title: "Opening Email Client",
+      description: "Your default email client will open with the message pre-filled.",
     });
+    
     setFormData({ name: '', email: '', subject: '', message: '' });
   };
 
@@ -34,10 +41,12 @@ const Contact = () => {
   };
 
   const socialLinks = [
-    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/techwithmano', color: 'from-blue-500 to-blue-600' },
+    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/abdulrahman-haramain-19539b332', color: 'from-blue-500 to-blue-600' },
     { name: 'GitHub', url: 'https://github.com/techwithmano', color: 'from-gray-600 to-gray-700' },
-    { name: 'Linktree', url: 'https://linktr.ee/techwithmano', color: 'from-green-500 to-green-600' },
-    { name: 'ManoMed AI', url: 'https://manomedai.com/contact', color: 'from-purple-500 to-purple-600' }
+    { name: 'YouTube', url: 'https://youtube.com/@tech_with_mano', color: 'from-red-500 to-red-600' },
+    { name: 'Instagram', url: 'https://www.instagram.com/tech_with_mano', color: 'from-pink-500 to-purple-600' },
+    { name: 'TikTok', url: 'https://www.tiktok.com/@tech_with_mano', color: 'from-black to-gray-800' },
+    { name: 'WhatsApp', url: 'https://whatsapp.com/channel/0029Vb5tsejJUM2cSrHsRw0c', color: 'from-green-500 to-green-600' }
   ];
 
   const quickActions = [
@@ -137,7 +146,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="text-white font-semibold">Email</p>
-                      <p className="text-gray-400">Officialtechwithmano@gmail.com</p>
+                      <p className="text-gray-400">officialtechwithmano@gmail.com</p>
                     </div>
                   </div>
                   <div className="flex items-center space-x-4">
@@ -210,7 +219,7 @@ const Contact = () => {
             <Button 
               size="lg"
               className="w-full bg-gradient-to-r from-neural-orange to-plasma-pink hover:from-plasma-pink hover:to-cyber-blue text-white py-4"
-              onClick={() => toast({ title: "CV Download", description: "CV download will be available soon!" })}
+              onClick={() => window.open('https://ugc.production.linktr.ee/06ed18ca-d9d6-4b7c-bd21-e9fd379a3c3c_Abdulrahman-Haramain-CV.pdf', '_blank')}
             >
               Download My CV
               <ArrowRight className="ml-2 w-5 h-5" />

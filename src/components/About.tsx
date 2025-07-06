@@ -50,6 +50,20 @@ const About = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-cyber-blue to-neon-purple mx-auto rounded-full mt-6"></div>
         </div>
 
+        {/* Personal Photo Section */}
+        <div className="flex justify-center mb-12">
+          <div className="relative">
+            <div className="w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-full overflow-hidden cyber-border hover-lift">
+              <img 
+                src="/lovable-uploads/84c61bd8-f0af-4df4-84a7-79c210e5c5fe.png" 
+                alt="Abdulrahman Haramain - Professional Headshot"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="absolute -inset-4 bg-gradient-to-r from-cyber-blue via-neon-purple to-plasma-pink rounded-full opacity-20 animate-pulse"></div>
+          </div>
+        </div>
+
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           {/* Left Column - Bio & Languages */}
           <div className="space-y-6 lg:space-y-8">
