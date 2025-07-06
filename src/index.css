@@ -2,18 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-/* === COLOR SCHEME LOCK FOR MOBILE DEVICES === */
+/* === FORCE LIGHT COLOR SCHEME & DISABLE SYSTEM OVERRIDES ON IOS/ANDROID === */
 @layer base {
-  /* Force only light mode on all devices */
+  /* Lock light mode */
   :root {
-    color-scheme: only light !important;
+    color-scheme: light !important;
   }
 
   html, body {
-    background-color: hsl(var(--background)) !important; /* keeps your bg */
-    color-scheme: none !important; /* prevent system forced colors */
-    -webkit-appearance: none !important;
-    -webkit-tap-highlight-color: transparent !important;
+    background-color: hsl(var(--background)) !important;
+    color: hsl(var(--foreground)) !important;
+    color-scheme: light !important;
+    -webkit-text-fill-color: hsl(var(--foreground)) !important;
+    -webkit-print-color-adjust: exact !important;
+    -webkit-font-smoothing: antialiased !important;
+    -webkit-user-select: none !important;
+    -webkit-text-size-adjust: 100% !important;
   }
 
   input, textarea, select, button {
@@ -23,6 +27,7 @@
     appearance: none !important;
     box-shadow: none !important;
     border-radius: 0 !important;
+    -webkit-text-fill-color: inherit !important;
   }
 }
 
