@@ -65,11 +65,11 @@ const Contact = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-cyber-blue to-neon-purple mx-auto rounded-full mt-6"></div>
         </div>
 
-        {/* Find Me Online - on top */}
-        <Card className="glass-morph hover-lift mb-12">
+        {/* 🔵 FIND ME ONLINE - CENTERED & ABOVE COLUMNS */}
+        <Card className="glass-morph hover-lift mb-10">
           <CardContent className="p-6 md:p-8 text-left">
-            <h3 className="text-2xl font-bold text-cyan-400 mb-6 text-center lg:text-left">Find Me Online</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+            <h3 className="text-2xl font-bold text-cyan-400 mb-6 text-center">Find Me Online</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 justify-center">
               {socialLinks.map(link => (
                 <Button
                   key={link.name}
@@ -92,10 +92,10 @@ const Contact = () => {
           </CardContent>
         </Card>
 
-        {/* Two Columns: Form + Info */}
+        {/* 🟣 TWO COLUMNS */}
         <div className="flex flex-col lg:flex-row lg:items-stretch gap-8 lg:gap-12">
-          {/* Contact Form */}
-          <div className="flex-1 lg:h-full">
+          {/* LEFT - Send Message */}
+          <div className="flex-1 lg:h-full mt-2">
             <Card className="glass-morph hover-lift h-full">
               <CardHeader className="text-center lg:text-left">
                 <CardTitle className="text-2xl text-cyan-400">Send a Message</CardTitle>
@@ -150,7 +150,7 @@ const Contact = () => {
             </Card>
           </div>
 
-          {/* Info & Quick Actions */}
+          {/* RIGHT - Info + Actions */}
           <div className="flex-1 lg:h-full space-y-8">
             <Card className="glass-morph hover-lift">
               <CardContent className="p-6 md:p-8 text-left">
@@ -201,7 +201,7 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* CV Download - Centered */}
+        {/* ⬇️ DOWNLOAD CV - centered below */}
         <div className="flex justify-center mt-12">
           <Button 
             size="lg"
