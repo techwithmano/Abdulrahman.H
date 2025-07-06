@@ -64,10 +64,10 @@ const Contact = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-cyber-blue to-neon-purple mx-auto rounded-full mt-6"></div>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-12">
+        <div className="flex flex-col lg:flex-row lg:items-stretch gap-8 lg:gap-12 max-w-7xl mx-auto">
           {/* Left Side: Contact Form */}
-          <div className="flex-1">
-            <Card className="glass-morph hover-lift">
+          <div className="flex-1 lg:h-full">
+            <Card className="glass-morph hover-lift h-full">
               <CardHeader className="text-center lg:text-left">
                 <CardTitle className="text-2xl text-cyan-400">Send a Message</CardTitle>
               </CardHeader>
@@ -122,8 +122,7 @@ const Contact = () => {
           </div>
 
           {/* Right Side: Info + Links */}
-          <div className="flex-1 space-y-8">
-            {/* Get in Touch */}
+          <div className="flex-1 lg:h-full space-y-8">
             <Card className="glass-morph hover-lift">
               <CardContent className="p-6 md:p-8 text-left">
                 <h3 className="text-2xl font-bold text-cyan-400 mb-6 text-center lg:text-left">Get in Touch</h3>
@@ -147,7 +146,6 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            {/* Social Links */}
             <Card className="glass-morph hover-lift">
               <CardContent className="p-6 md:p-8 text-left">
                 <h3 className="text-2xl font-bold text-cyan-400 mb-6 text-center lg:text-left">Find Me Online</h3>
@@ -174,7 +172,6 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            {/* Collaboration */}
             <Card className="glass-morph hover-lift">
               <CardContent className="p-6 md:p-8 text-left">
                 <h3 className="text-2xl font-bold text-cyan-400 mb-6 text-center lg:text-left">Collaboration Opportunities</h3>
@@ -199,7 +196,6 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            {/* CV Download */}
             <Button 
               size="lg"
               className="w-full bg-gradient-to-r from-neural-orange to-plasma-pink hover:from-plasma-pink hover:to-cyber-blue text-white py-4"
