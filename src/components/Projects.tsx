@@ -24,7 +24,7 @@ const Projects = () => {
       ],
       status: 'Live',
       period: '11/2024 - Present',
-      link: 'https://github.com/techwithmano/ManoMedAI',
+      link: 'https://github.com/techwithmano/ManoMed-AI',
       gradient: 'from-green-400 to-blue-500'
     },
     {
